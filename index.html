@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Ahmed Real Estate</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+
+:root{
+    --primary:#07182d;
+    --secondary:#0f2747;
+    --gold:#d4af6a;
+    --light-gold:#f7e3b2;
+    --white:#fff;
+    --success:#25d366;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Cairo',sans-serif;
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(7,24,45,.85),rgba(7,24,45,.92)),
+    url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1920&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:70px 20px 30px;
+    animation:fadeUp 1s ease;
+}
+
+.hero h1{
+    font-size:55px;
+    font-weight:800;
+    margin-bottom:15px;
+    background:linear-gradient(to left,#fff,#d4af6a);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    color:#ddd;
+    line-height:2;
+    font-size:18px;
+}
+
+/* MAIN CARD */
+
+.main-container{
+    width:95%;
+    max-width:1050px;
+    margin:40px auto;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:35px;
+    overflow:hidden;
+    box-shadow:0 15px 50px rgba(0,0,0,.4);
+    animation:fadeUp 1.3s ease;
+}
+
+.header-section{
+    text-align:center;
+    padding:40px 20px 20px;
+}
+
+.header-section h2{
+    font-size:35px;
+    margin-bottom:10px;
+    color:white;
+}
+
+.header-section p{
+    color:#ddd;
+    font-size:16px;
+}
+
+/* FORM */
+
+.form-body{
+    padding:40px;
+}
+
+.grid-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.form-group{
+    flex:1;
+    min-width:250px;
+}
+
+label{
+    display:block;
+    margin-bottom:10px;
+    color:var(--light-gold);
+    font-weight:600;
+}
+
+input,
+select{
+    width:100%;
+    padding:18px;
+    border:none;
+    outline:none;
+    border-radius:18px;
+    background:rgba(255,255,255,.08);
+    color:white;
+    font-size:15px;
+    transition:.3s;
+    border:1px solid transparent;
+}
+
+input::placeholder{
+    color:#ccc;
+}
+
+input:focus,
+select:focus{
+    border-color:var(--gold);
+    transform:translateY(-2px);
+    box-shadow:0 0 15px rgba(212,175,106,.3);
+}
+
+.phone-container{
+    display:flex;
+    gap:10px;
+}
+
+.phone-container select{
+    width:35%;
+}
+
+.phone-container input{
+    width:65%;
+}
+
+/* UNIT OPTIONS */
+
+.unit-type-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-top:15px;
+}
+
+.radio-card{
+    flex:1;
+    min-width:120px;
+}
+
+.radio-card input{
+    display:none;
+}
+
+.radio-card label{
+    height:70px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:18px;
+    cursor:pointer;
+    background:rgba(255,255,255,.06);
+    color:white;
+    transition:.3s;
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.radio-card label:hover{
+    transform:translateY(-4px);
+    border-color:var(--gold);
+}
+
+.radio-card input:checked + label{
+    background:linear-gradient(135deg,var(--gold),#b98a3f);
+    color:#07182d;
+    font-weight:700;
+    box-shadow:0 10px 20px rgba(212,175,106,.3);
+}
+
+/* BUTTON */
+
+.submit-area{
+    margin-top:40px;
+}
+
+.btn-whatsapp{
+    width:100%;
+    padding:22px;
+    border:none;
+    border-radius:20px;
+    background:linear-gradient(135deg,#25d366,#14b954);
+    color:white;
+    font-size:20px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.4s;
+    box-shadow:0 10px 25px rgba(37,211,102,.3);
+    position:relative;
+    overflow:hidden;
+}
+
+.btn-whatsapp:hover{
+    transform:translateY(-4px);
+    box-shadow:0 18px 35px rgba(37,211,102,.45);
+}
+
+/* SOCIAL */
+
+.social-section{
+    padding:20px 40px 50px;
+    text-align:center;
+}
+
+.social-title{
+    margin-bottom:25px;
+    color:var(--light-gold);
+    font-size:20px;
+    font-weight:700;
+}
+
+.social-icons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.social-icons a{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    color:white;
+    font-size:28px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.1);
+    transition:.4s;
+    backdrop-filter:blur(10px);
+}
+
+.social-icons a:hover{
+    transform:translateY(-8px) scale(1.08);
+    border-color:var(--gold);
+    box-shadow:0 10px 25px rgba(212,175,106,.35);
+}
+
+/* FLOATING WHATSAPP */
+
+.floating-whatsapp{
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    width:65px;
+    height:65px;
+    background:#25d366;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:32px;
+    text-decoration:none;
+    box-shadow:0 10px 25px rgba(37,211,102,.4);
+    z-index:999;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.08);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .form-body{
+        padding:25px;
+    }
+
+    .phone-container{
+        flex-direction:column;
+    }
+
+    .phone-container select,
+    .phone-container input{
+        width:100%;
+    }
+
+    .header-section h2{
+        font-size:28px;
+    }
+
+    .social-icons a{
+        width:58px;
+        height:58px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<section class="hero">
+    <h1>Ahmed Real Estate</h1>
+    <p>
+        اكتشف أفخم الشاليهات والوحدات الساحلية بأفضل المواقع والأسعار الحصرية.
+        سجل بياناتك الآن واحصل على الكتالوج الكامل مباشرة عبر واتساب.
+    </p>
+</section>
+
+<!-- FORM -->
+
+<div class="main-container">
+
+    <div class="header-section">
+        <h2>احجز استشارتك العقارية</h2>
+        <p>فريقنا جاهز لمساعدتك بأفضل العروض والاستثمارات</p>
+    </div>
+
+    <form class="form-body" id="bookingForm">
+
+        <div class="grid-row">
+
+            <div class="form-group">
+                <label>الاسم الكامل</label>
+                <input type="text" id="userName"
+                placeholder="مثال: أحمد محمد" required>
+            </div>
+
+            <div class="form-group">
+                <label>رقم الواتساب</label>
+
+                <div class="phone-container">
+
+                    <select id="countryCode">
+                        <option value="20">🇪🇬 +20</option>
+                        <option value="966">🇸🇦 +966</option>
+                        <option value="971">🇦🇪 +971</option>
+                        <option value="965">🇰🇼 +965</option>
+                        <option value="974">🇶🇦 +974</option>
+                        <option value="44">🇬🇧 +44</option>
+                    </select>
+
+                    <input type="tel" id="userPhone"
+                    placeholder="000000000" required>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>نوع الوحدة المطلوبة</label>
+
+            <div class="unit-type-container">
+
+                <div class="radio-card">
+                    <input type="radio" name="unit"
+                    id="u1" value="استوديو" checked>
+                    <label for="u1">استوديو</label>
+                </div>
+
+                <div class="radio-card">
+                    <input type="radio" name="unit"
+                    id="u2" value="غرفة واحدة">
+                    <label for="u2">غرفة</label>
+                </div>
+
+                <div class="radio-card">
+                    <input type="radio" name="unit"
+                    id="u3" value="غرفتين">
+                    <label for="u3">غرفتين</label>
+                </div>
+
+                <div class="radio-card">
+                    <input type="radio" name="unit"
+                    id="u4" value="3 غرف">
+                    <label for="u4">3 غرف</label>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="submit-area">
+            <button type="submit" class="btn-whatsapp">
+                📲 استلام كتالوج الأسعار عبر واتساب
+            </button>
+        </div>
+
+    </form>
+
+    <!-- SOCIAL -->
+
+    <div class="social-section">
+
+        <div class="social-title">
+            تابعنا على منصات التواصل
+        </div>
+
+        <div class="social-icons">
+
+            <a href="https://wa.me/201220541190" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+            <a href="https://www.instagram.com/ahmedrealestate10?igsh=MWRsZ2VkdHU0OWZ6"
+            target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://www.facebook.com/share/18o34ueZSd/?mibextid=wwXIfr"
+            target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+
+            <a href="https://www.tiktok.com/@ahmedmooooooo01?_r=1&_t=ZS-96Cmzq49OWy"
+            target="_blank">
+                <i class="fab fa-tiktok"></i>
+            </a>
+
+            <a href="https://snapchat.com/t/mp33ICyk"
+            target="_blank">
+                <i class="fab fa-snapchat"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FLOATING -->
+
+<a class="floating-whatsapp"
+href="https://wa.me/201220541190"
+target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+
+document.getElementById('bookingForm').onsubmit = function(e){
+
+    e.preventDefault();
+
+    const myNumber = "201220541190";
+
+    const name =
+    document.getElementById('userName').value;
+
+    const code =
+    document.getElementById('countryCode').value;
+
+    const phone =
+    document.getElementById('userPhone').value;
+
+    const unit =
+    document.querySelector('input[name="unit"]:checked').value;
+
+    const message =
+`مرحباً، أريد الاستفسار عن وحدة عقارية
+
+👤 الاسم: ${name}
+
+📞 الرقم: +${code}${phone}
+
+🏠 الوحدة المطلوبة: ${unit}
+
+تم الإرسال من الموقع الإلكتروني`;
+
+    window.open(
+`https://wa.me/${myNumber}?text=${encodeURIComponent(message)}`,
+'_blank'
+);
+
+};
+
+</script>
+
+</body>
+</html>
