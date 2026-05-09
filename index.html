@@ -14,17 +14,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 font-family:'Cairo',sans-serif;
 background:#061321;
 color:white;
-overflow-x:hidden;
 }
 
 /* BACKGROUND */
@@ -33,7 +28,7 @@ content:'';
 position:fixed;
 inset:0;
 background:
-linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.75)),
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
 url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2200&auto=format&fit=crop');
 background-size:cover;
 background-position:center;
@@ -48,135 +43,62 @@ backdrop-filter:blur(2px);
 z-index:-1;
 }
 
-/* =========================
-   🔥 الفورم (تم نقله للأول)
-========================= */
-
+/* TOP FORM */
 .top-form{
 padding:120px 7% 40px;
 display:flex;
 justify-content:center;
 }
 
-.top-form-box{
-max-width:650px;
+.form-box{
+max-width:600px;
 width:100%;
-padding:35px;
-background:rgba(255,255,255,.10);
+padding:30px;
+background:rgba(255,255,255,.1);
 backdrop-filter:blur(18px);
 border-radius:25px;
-border:1px solid rgba(255,255,255,.15);
 text-align:center;
 }
 
-.top-form-box h2{
-margin-bottom:20px;
-font-size:26px;
-}
-
-.input-group{
-margin-bottom:15px;
-}
+.input-group{margin-bottom:15px;}
 
 input,select{
 width:100%;
-padding:16px;
+padding:15px;
 border:none;
 outline:none;
+border-radius:12px;
 background:rgba(255,255,255,.08);
 color:white;
-border-radius:15px;
-font-size:15px;
 }
 
-select option{
-color:black;
-}
+select option{color:black;}
 
-.submit-btn{
+button{
 width:100%;
 padding:18px;
+background:#25d366;
 border:none;
 border-radius:15px;
-background:#25d366;
 color:white;
 font-size:18px;
-font-weight:700;
+font-weight:bold;
 cursor:pointer;
-transition:.3s;
 }
 
-.submit-btn:hover{
-transform:translateY(-5px);
-}
-
-/* =========================
-   NAVBAR (زي ما هو)
-========================= */
-
-.navbar{
-position:fixed;
-top:0;
-width:100%;
-padding:22px 7%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(0,0,0,.18);
-backdrop-filter:blur(16px);
-border-bottom:1px solid rgba(255,255,255,.08);
-z-index:999;
-}
-
-.logo{
-font-size:30px;
-font-weight:800;
-}
-
-.logo span{color:#7ee7ff;}
-
-.nav-links{
-display:flex;
-gap:28px;
-}
-
-.nav-links a{
-text-decoration:none;
-color:white;
-font-size:15px;
-transition:.3s;
-}
-
-.nav-links a:hover{color:#7ee7ff;}
-
-/* =========================
-   HERO (زي ما هو)
-========================= */
-
+/* HERO */
 .hero{
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
 text-align:center;
-padding:40px 20px;
-}
-
-.hero-box{
-max-width:900px;
+padding:60px 20px;
 }
 
 .hero h1{
-font-size:65px;
-margin-bottom:20px;
-background:linear-gradient(to left,#fff,#8be8ff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+font-size:50px;
+margin-bottom:10px;
 }
 
 .hero p{
-font-size:18px;
-color:#ddd;
+opacity:.8;
 }
 
 /* SOCIAL */
@@ -184,69 +106,92 @@ color:#ddd;
 display:flex;
 justify-content:center;
 gap:15px;
-margin:40px 0;
+margin:30px 0;
 }
 
 .socials a{
-width:60px;
-height:60px;
-border-radius:50%;
+width:60px;height:60px;
 display:flex;
 justify-content:center;
 align-items:center;
-background:rgba(255,255,255,.08);
+border-radius:50%;
+background:rgba(255,255,255,.1);
 color:white;
 font-size:24px;
-text-decoration:none;
-transition:.3s;
-}
-
-.socials a:hover{
-background:#25d366;
-transform:translateY(-5px);
 }
 
 /* FLOAT */
-.float-whatsapp{
+.float{
 position:fixed;
 left:20px;
 bottom:20px;
-width:70px;
-height:70px;
+width:65px;
+height:65px;
 background:#25d366;
 border-radius:50%;
 display:flex;
 justify-content:center;
 align-items:center;
+font-size:28px;
 color:white;
-font-size:32px;
-text-decoration:none;
-animation:pulse 2s infinite;
 }
 
-/* ACCESSIBILITY */
-.accessibility-btn{
+/* ACCESS */
+.access{
 position:fixed;
 right:20px;
 bottom:110px;
-width:65px;
-height:65px;
+width:60px;
+height:60px;
 background:#007bff;
 border-radius:50%;
 display:flex;
 justify-content:center;
 align-items:center;
 color:white;
-font-size:26px;
-text-decoration:none;
-animation:pulse 2s infinite;
 }
 
-/* ANIMATION */
-@keyframes pulse{
-0%{transform:scale(1)}
-50%{transform:scale(1.08)}
-100%{transform:scale(1)}
+/* AI BUTTON */
+.ai-btn{
+position:fixed;
+right:20px;
+bottom:190px;
+width:60px;
+height:60px;
+background:#ff9800;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+cursor:pointer;
+}
+
+/* AI BOX */
+.ai-box{
+position:fixed;
+right:20px;
+bottom:260px;
+width:280px;
+background:white;
+color:black;
+border-radius:15px;
+padding:10px;
+display:none;
+}
+
+.ai-box input{
+width:100%;
+padding:10px;
+margin-top:5px;
+border-radius:10px;
+border:1px solid #ccc;
+color:black;
+}
+
+.ai-msg{
+font-size:14px;
+margin-bottom:10px;
 }
 
 </style>
@@ -254,39 +199,37 @@ animation:pulse 2s infinite;
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-<div class="logo">Ahmed <span>Real Estate</span></div>
-<div class="nav-links">
-<a href="#">الرئيسية</a>
-<a href="#projects">المشاريع</a>
-<a href="#contact">تواصل</a>
-</div>
-</nav>
-
-<!-- 🔥 الفورم أصبح أول حاجة بدون حذف أي شيء -->
+<!-- FORM FIRST -->
 <section class="top-form">
 
-<div class="top-form-box">
+<div class="form-box">
 
-<h2>سجل بياناتك واحصل على أفضل العروض</h2>
+<h2>سجل بياناتك الآن</h2>
 
-<form id="topForm">
+<form id="form">
 
 <div class="input-group">
-<input type="text" id="name" placeholder="الاسم الكامل" required>
+<input type="text" id="name" placeholder="الاسم" required>
 </div>
 
 <div class="input-group">
 
-<select id="countryCode">
+<select id="code">
 
 <option value="20">🇪🇬 مصر +20</option>
 <option value="966">🇸🇦 السعودية +966</option>
 <option value="971">🇦🇪 الإمارات +971</option>
 <option value="965">🇰🇼 الكويت +965</option>
+<option value="974">🇶🇦 قطر +974</option>
+<option value="973">🇧🇭 البحرين +973</option>
+<option value="968">🇴🇲 عمان +968</option>
+<option value="962">🇯🇴 الأردن +962</option>
+<option value="964">🇮🇶 العراق +964</option>
+<option value="961">🇱🇧 لبنان +961</option>
 <option value="1">🇺🇸 أمريكا +1</option>
 <option value="44">🇬🇧 بريطانيا +44</option>
+<option value="49">🇩🇪 ألمانيا +49</option>
+<option value="33">🇫🇷 فرنسا +33</option>
 
 </select>
 
@@ -296,9 +239,7 @@ animation:pulse 2s infinite;
 <input type="tel" id="phone" placeholder="رقم الواتساب" required>
 </div>
 
-<button type="submit" class="submit-btn">
-📲 استلام العروض
-</button>
+<button type="submit">📲 إرسال</button>
 
 </form>
 
@@ -306,15 +247,11 @@ animation:pulse 2s infinite;
 
 </section>
 
-<!-- HERO (بدون تغيير) -->
+<!-- HERO -->
 <section class="hero">
 
-<div class="hero-box">
-
 <h1>مشاريع الساحل الشمالي</h1>
-<p>أفضل شاليهات وفيلات في العلمين الجديدة</p>
-
-</div>
+<p>أفضل الشاليهات والفيلات في العلمين الجديدة</p>
 
 </section>
 
@@ -322,37 +259,70 @@ animation:pulse 2s infinite;
 <div class="socials">
 
 <a href="https://wa.me/201220541190"><i class="fab fa-whatsapp"></i></a>
-<a href="https://www.instagram.com/ahmedrealestate10"><i class="fab fa-instagram"></i></a>
-<a href="https://www.facebook.com/share/18o34ueZSd/"><i class="fab fa-facebook"></i></a>
-<a href="https://www.tiktok.com/@ahmedmooooooo01"><i class="fab fa-tiktok"></i></a>
-<a href="https://snapchat.com/t/mp33ICyk"><i class="fab fa-snapchat"></i></a>
+<a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+<a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+<a href="https://tiktok.com"><i class="fab fa-tiktok"></i></a>
 
 </div>
 
 <!-- FLOAT -->
-<a class="float-whatsapp" href="https://wa.me/201220541190">
+<a class="float" href="https://wa.me/201220541190">
 <i class="fab fa-whatsapp"></i>
 </a>
 
 <!-- ACCESS -->
-<a class="accessibility-btn" href="https://wa.me/201220541190">
+<div class="access">
 <i class="fa-solid fa-hands-asl-interpreting"></i>
-</a>
+</div>
 
-<!-- SCRIPT -->
+<!-- AI BUTTON -->
+<div class="ai-btn" onclick="toggleAI()">
+🤖
+</div>
+
+<!-- AI BOX -->
+<div class="ai-box" id="aiBox">
+
+<div class="ai-msg">أهلاً 👋 أنا مساعدك الذكي، اسألني عن أي مشروع</div>
+
+<input type="text" id="aiInput" placeholder="اكتب سؤالك...">
+
+</div>
+
 <script>
 
-document.getElementById('topForm').addEventListener('submit',function(e){
+/* FORM */
+document.getElementById('form').addEventListener('submit',function(e){
 
 e.preventDefault();
 
 let name=document.getElementById('name').value;
-let code=document.getElementById('countryCode').value;
+let code=document.getElementById('code').value;
 let phone=document.getElementById('phone').value;
 
-let msg=`عميل جديد:\n\nالاسم: ${name}\nالرقم: +${code}${phone}`;
+let msg=`عميل جديد\n\n${name}\n+${code}${phone}`;
 
 window.open(`https://wa.me/201220541190?text=${encodeURIComponent(msg)}`,'_blank');
+
+});
+
+/* AI SIMPLE */
+function toggleAI(){
+let box=document.getElementById('aiBox');
+box.style.display = box.style.display === "block" ? "none" : "block";
+}
+
+document.getElementById("aiInput").addEventListener("keypress",function(e){
+
+if(e.key==="Enter"){
+
+let text=e.target.value;
+
+alert("AI: شكراً لسؤالك، سيتم الرد عليك قريباً بخصوص: " + text);
+
+e.target.value="";
+
+}
 
 });
 
