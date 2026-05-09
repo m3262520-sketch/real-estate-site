@@ -1,3 +1,435 @@
+# Advanced Real Estate Landing Page (Full Fixed Version)
+
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed Real Estate</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Cairo',sans-serif;
+background:#071421;
+color:white;
+overflow-x:hidden;
+}
+
+/* BACKGROUND */
+body::before{
+content:'';
+position:fixed;
+inset:0;
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
+url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2200&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+z-index:-2;
+}
+
+body::after{
+content:'';
+position:fixed;
+inset:0;
+backdrop-filter:blur(2px);
+z-index:-1;
+}
+
+/* NAVBAR */
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+padding:20px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,.25);
+backdrop-filter:blur(14px);
+z-index:999;
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+font-size:30px;
+font-weight:800;
+}
+
+.logo span{
+color:#67e8f9;
+}
+
+.nav-links{
+display:flex;
+gap:25px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+font-size:15px;
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:#67e8f9;
+}
+
+/* TOP FORM */
+.top-form{
+padding:140px 20px 60px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.form-box{
+width:100%;
+max-width:600px;
+padding:35px;
+background:rgba(255,255,255,.10);
+backdrop-filter:blur(18px);
+border-radius:30px;
+border:1px solid rgba(255,255,255,.12);
+box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.form-box h1{
+text-align:center;
+margin-bottom:10px;
+font-size:34px;
+}
+
+.form-box p{
+text-align:center;
+margin-bottom:25px;
+opacity:.8;
+}
+
+.input-group{
+margin-bottom:15px;
+}
+
+input,select{
+width:100%;
+padding:16px;
+border:none;
+outline:none;
+border-radius:16px;
+background:rgba(255,255,255,.08);
+color:white;
+font-size:15px;
+}
+
+select option{
+color:black;
+}
+
+.submit-btn{
+width:100%;
+padding:18px;
+border:none;
+border-radius:18px;
+background:#25d366;
+color:white;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
+
+.submit-btn:hover{
+transform:translateY(-3px);
+}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:20px 20px 60px;
+}
+
+.hero h2{
+font-size:58px;
+margin-bottom:15px;
+background:linear-gradient(to left,#fff,#67e8f9);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+font-size:18px;
+max-width:700px;
+margin:auto;
+line-height:2;
+opacity:.9;
+}
+
+/* SOCIALS */
+.socials{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+padding-bottom:60px;
+}
+
+.socials a{
+width:65px;
+height:65px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:26px;
+text-decoration:none;
+background:rgba(255,255,255,.1);
+color:white;
+transition:.3s;
+}
+
+.socials a:hover{
+transform:translateY(-6px);
+background:#25d366;
+}
+
+/* SNAP SPECIAL */
+.snap{
+background:#fffc00 !important;
+color:black !important;
+}
+
+/* FLOAT WHATSAPP */
+.float-whatsapp{
+position:fixed;
+left:20px;
+bottom:20px;
+width:70px;
+height:70px;
+border-radius:50%;
+background:#25d366;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:32px;
+color:white;
+text-decoration:none;
+box-shadow:0 10px 25px rgba(37,211,102,.45);
+animation:pulse 2s infinite;
+z-index:999;
+}
+
+/* AI BUTTON */
+.ai-btn{
+position:fixed;
+right:20px;
+bottom:20px;
+width:70px;
+height:70px;
+border-radius:50%;
+background:#ff9800;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(255,152,0,.45);
+z-index:999;
+}
+
+/* AI BOX */
+.ai-box{
+position:fixed;
+right:20px;
+bottom:105px;
+width:320px;
+background:white;
+color:black;
+padding:15px;
+border-radius:20px;
+display:none;
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+z-index:999;
+}
+
+.ai-title{
+font-weight:700;
+margin-bottom:10px;
+}
+
+.ai-reply{
+background:#f1f1f1;
+padding:10px;
+border-radius:12px;
+margin-bottom:10px;
+min-height:50px;
+font-size:14px;
+line-height:1.8;
+}
+
+.ai-input-wrap{
+display:flex;
+gap:8px;
+}
+
+.ai-input-wrap input{
+background:#f4f4f4;
+color:black;
+}
+
+.ai-send{
+padding:12px 15px;
+border:none;
+border-radius:12px;
+background:#25d366;
+color:white;
+font-weight:700;
+cursor:pointer;
+}
+
+/* ANIMATION */
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.08)}
+100%{transform:scale(1)}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.navbar{
+flex-direction:column;
+gap:12px;
+}
+
+.hero h2{
+font-size:38px;
+}
+
+.form-box{
+padding:25px;
+}
+
+.ai-box{
+width:90%;
+right:5%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+<div class="logo">Ahmed <span>Real Estate</span></div>
+
+<div class="nav-links">
+<a href="#">الرئيسية</a>
+<a href="#">المشاريع</a>
+<a href="#">الساحل الشمالي</a>
+<a href="#">تواصل</a>
+</div>
+</nav>
+
+<!-- FORM FIRST -->
+<section class="top-form">
+
+<div class="form-box">
+
+<h1>سجل بياناتك الآن</h1>
+<p>واحصل على أفضل عروض الساحل الشمالي فورًا</p>
+
+<form id="leadForm">
+
+<div class="input-group">
+<input type="text" id="name" placeholder="الاسم الكامل" required>
+</div>
+
+<div class="input-group">
+<select id="countryCode">
+<option value="20">🇪🇬 مصر +20</option>
+<option value="966">🇸🇦 السعودية +966</option>
+<option value="971">🇦🇪 الإمارات +971</option>
+<option value="965">🇰🇼 الكويت +965</option>
+<option value="974">🇶🇦 قطر +974</option>
+<option value="973">🇧🇭 البحرين +973</option>
+<option value="968">🇴🇲 عمان +968</option>
+<option value="962">🇯🇴 الأردن +962</option>
+<option value="964">🇮🇶 العراق +964</option>
+<option value="961">🇱🇧 لبنان +961</option>
+<option value="1">🇺🇸 أمريكا +1</option>
+<option value="44">🇬🇧 بريطانيا +44</option>
+<option value="49">🇩🇪 ألمانيا +49</option>
+<option value="33">🇫🇷 فرنسا +33</option>
+</select>
+</div>
+
+<div class="input-group">
+<input type="tel" id="phone" placeholder="رقم الواتساب" required>
+</div>
+
+<button type="submit" class="submit-btn">
+📲 استلام العروض الآن
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<!-- HERO -->
+<section class="hero">
+<h2>مشاريع الساحل الشمالي</h2>
+<p>
+اكتشف أفخم الشاليهات والفيلات في العلمين الجديدة بإطلالات مباشرة على البحر وأنظمة سداد مرنة.
+</p>
+</section>
+
+<!-- SOCIAL -->
+<div class="socials">
+
+<a href="https://wa.me/201220541190" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<a href="https://www.instagram.com/ahmedrealestate10" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://www.facebook.com/share/18o34ueZSd/?mibextid=wwXIfr" target="_blank">
+<i class="fab fa-facebook"></i>
+</a>
+
+<a href="https://www.tiktok.com/@ahmedmooooooo01?_r=1&_t=ZS-96Cmzq49OWy" target="_blank">
+<i class="fab fa-tiktok"></i>
+</a>
+
+<a href="https://snapchat.com/t/mp33ICyk" class="snap" target="_blank">
+<i class="fab fa-snapchat"></i>
+</a>
+
+</div>
+
+<!-- FLOAT WHATSAPP -->
+<a class="float-whatsapp" href="https://wa.me/201220541190" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
 <!-- AI BUTTON -->
 <div class="ai-btn" onclick="toggleAI()">
 🤖
@@ -6,24 +438,101 @@
 <!-- AI BOX -->
 <div class="ai-box" id="aiBox">
 
-<div class="ai-msg">أنا مساعدك الذكي 👋 اسأل عن أي مشروع</div>
+<div class="ai-title">المساعد الذكي</div>
 
-<div style="display:flex;gap:5px">
+<div class="ai-reply" id="aiReply">
+أهلاً 👋 اسأل عن الأسعار أو المشاريع أو طرق السداد.
+</div>
 
+<div class="ai-input-wrap">
 <input type="text" id="aiInput" placeholder="اكتب سؤالك...">
-
-<button onclick="sendAI()" style="
-background:#25d366;
-border:none;
-color:white;
-padding:10px;
-border-radius:10px;
-cursor:pointer;">
-إرسال
-</button>
+<button class="ai-send" onclick="sendAI()">إرسال</button>
+</div>
 
 </div>
 
-<div id="aiReply" style="margin-top:10px;font-size:13px;"></div>
+<script>
 
-</div>
+/* FORM */
+document.getElementById('leadForm').addEventListener('submit',function(e){
+
+ e.preventDefault();
+
+ let name=document.getElementById('name').value;
+ let code=document.getElementById('countryCode').value;
+ let phone=document.getElementById('phone').value;
+
+ let message=`عميل جديد من الموقع\n\nالاسم: ${name}\nالرقم: +${code}${phone}`;
+
+ window.open(`https://wa.me/201220541190?text=${encodeURIComponent(message)}`,'_blank');
+
+});
+
+/* AI */
+function toggleAI(){
+
+ let box=document.getElementById('aiBox');
+
+ if(box.style.display==='block'){
+ box.style.display='none';
+ }
+ else{
+ box.style.display='block';
+ }
+
+}
+
+function sendAI(){
+
+ let input=document.getElementById('aiInput');
+ let reply=document.getElementById('aiReply');
+ let text=input.value.toLowerCase();
+
+ if(text.includes('سعر') || text.includes('price')){
+ reply.innerHTML='💰 الأسعار تبدأ من 1.5 مليون جنيه حسب المشروع والمساحة.';
+ }
+
+ else if(text.includes('تقسيط') || text.includes('سداد')){
+ reply.innerHTML='📆 يوجد أنظمة تقسيط تصل إلى 8 سنوات.';
+ }
+
+ else if(text.includes('الساحل') || text.includes('العلمين')){
+ reply.innerHTML='🏖️ لدينا مشاريع مميزة في العلمين الجديدة والساحل الشمالي.';
+ }
+
+ else if(text.trim()===''){
+ reply.innerHTML='✍️ اكتب سؤالك أولاً.';
+ }
+
+ else{
+ reply.innerHTML='📩 تم استلام سؤالك وسيتم التواصل معك قريبًا.';
+ }
+
+ input.value='';
+
+}
+
+</script>
+
+</body>
+</html>
+```
+
+## طريقة التشغيل
+
+1. افتح Notepad
+2. الصق الكود بالكامل
+3. Save As
+4. الاسم:
+
+```text
+index.html
+```
+
+5. Save as type:
+
+```text
+All Files
+```
+
+6. ارفع الملف على GitHub أو Netlify.
