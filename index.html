@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,124 +8,463 @@
 <title>Ahmed Real Estate</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
 <style>
 
-body{
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
     font-family:'Cairo',sans-serif;
-    background:#0b1c33;
+
+    background:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.65)),
+    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2000&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
     color:white;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:999;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(0,0,0,.15);
+    backdrop-filter:blur(14px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:800;
+    color:white;
+}
+
+.logo span{
+    color:#8fe9ff;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    font-size:15px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#8fe9ff;
 }
 
 /* HERO */
+
 .hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    padding:80px 20px;
-    background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
-    url('https://images.unsplash.com/photo-1505691723518-36a5ac3b2b10?auto=format&fit=crop&w=1600');
-    background-size:cover;
+    padding:20px;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(to bottom,
+    rgba(0,0,0,.2),
+    rgba(0,0,0,.7));
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:900px;
+    animation:fadeUp 1.2s ease;
+}
+
+.mini-badge{
+    display:inline-block;
+    padding:10px 22px;
+    border-radius:50px;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(12px);
+    margin-bottom:25px;
+    font-size:14px;
+    border:1px solid rgba(255,255,255,.15);
 }
 
 .hero h1{
-    font-size:50px;
-    margin-bottom:15px;
+    font-size:80px;
+    line-height:1.2;
+    margin-bottom:25px;
+    font-weight:800;
+
+    background:linear-gradient(to left,#fff,#9be7ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 .hero p{
+    font-size:22px;
+    color:#eee;
+    line-height:2;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.main-btn{
+    background:#25d366;
+    color:white;
+    padding:18px 38px;
+    border-radius:60px;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+    transition:.4s;
+    box-shadow:0 10px 30px rgba(37,211,102,.35);
+}
+
+.main-btn:hover{
+    transform:translateY(-5px) scale(1.03);
+}
+
+.second-btn{
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(10px);
+    color:white;
+    padding:18px 38px;
+    border-radius:60px;
+    text-decoration:none;
+    font-size:18px;
+    border:1px solid rgba(255,255,255,.15);
+    transition:.4s;
+}
+
+.second-btn:hover{
+    background:rgba(255,255,255,.2);
+}
+
+/* STATS */
+
+.stats{
+    padding:80px 8%;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.stat-box{
+    width:250px;
+    padding:35px;
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    text-align:center;
+    transition:.4s;
+}
+
+.stat-box:hover{
+    transform:translateY(-10px);
+}
+
+.stat-box h2{
+    font-size:45px;
+    color:#8fe9ff;
+    margin-bottom:10px;
+}
+
+/* PROJECTS */
+
+.projects{
+    padding:100px 8%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:50px;
+    margin-bottom:50px;
+}
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.project-card{
+    overflow:hidden;
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.4s;
+}
+
+.project-card:hover{
+    transform:translateY(-12px);
+}
+
+.project-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.project-info{
+    padding:25px;
+}
+
+.project-info h3{
+    margin-bottom:12px;
+}
+
+.project-info p{
+    color:#ddd;
+    line-height:1.8;
+}
+
+/* FORM */
+
+.contact-section{
+    padding:100px 8%;
+}
+
+.form-box{
     max-width:700px;
     margin:auto;
-    line-height:2;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+
+    border-radius:35px;
+    padding:40px;
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.form-box h2{
+    text-align:center;
+    margin-bottom:30px;
+    font-size:40px;
+}
+
+.input-group{
+    margin-bottom:20px;
+}
+
+input,
+select{
+    width:100%;
+    padding:18px;
+    border:none;
+    outline:none;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+    font-size:15px;
+}
+
+input::placeholder{
     color:#ddd;
 }
 
-.btn{
-    margin-top:20px;
-    display:inline-block;
-    padding:15px 30px;
+.submit-btn{
+    width:100%;
+    padding:20px;
+    border:none;
+    border-radius:20px;
+
     background:#25d366;
     color:white;
-    border-radius:30px;
-    text-decoration:none;
+
+    font-size:20px;
     font-weight:bold;
+
+    cursor:pointer;
+    transition:.4s;
 }
 
-/* SECTION */
-.section{
+.submit-btn:hover{
+    transform:translateY(-5px);
+}
+
+/* SOCIAL */
+
+.social-section{
     padding:60px 20px;
     text-align:center;
 }
 
-.cards{
+.social-title{
+    font-size:35px;
+    margin-bottom:30px;
+}
+
+.social-icons{
     display:flex;
-    flex-wrap:wrap;
+    justify-content:center;
     gap:20px;
-    justify-content:center;
-    margin-top:30px;
+    flex-wrap:wrap;
 }
 
-.card{
-    width:250px;
-    background:#122845;
-    padding:20px;
-    border-radius:15px;
-}
-
-/* FORM */
-form{
-    max-width:600px;
-    margin:auto;
-    background:#122845;
-    padding:30px;
-    border-radius:20px;
-}
-
-input,select{
-    width:100%;
-    padding:12px;
-    margin-bottom:10px;
-    border:none;
-    border-radius:10px;
-}
-
-button{
-    width:100%;
-    padding:15px;
-    background:#25d366;
-    border:none;
-    color:white;
-    font-size:18px;
-    border-radius:10px;
-}
-
-/* SOCIAL */
-.social{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    margin-top:30px;
-}
-
-.social a{
-    color:white;
-    font-size:25px;
-}
-
-/* FLOAT */
-.float{
-    position:fixed;
-    bottom:20px;
-    left:20px;
-    background:#25d366;
-    width:60px;
-    height:60px;
+.social-icons a{
+    width:70px;
+    height:70px;
     border-radius:50%;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+
     color:white;
-    font-size:28px;
+    text-decoration:none;
+    font-size:30px;
+
+    transition:.4s;
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.social-icons a:hover{
+    transform:translateY(-10px) scale(1.06);
+    background:#25d366;
+}
+
+/* FLOAT */
+
+.float-btn{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+
+    width:70px;
+    height:70px;
+
+    border-radius:50%;
+
+    background:#25d366;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+    text-decoration:none;
+    font-size:34px;
+
+    z-index:999;
+
+    box-shadow:0 10px 30px rgba(37,211,102,.45);
+
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .navbar{
+        padding:15px 5%;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .section-title{
+        font-size:34px;
+    }
+
+    .social-icons a{
+        width:60px;
+        height:60px;
+    }
 }
 
 </style>
@@ -132,72 +472,279 @@ button{
 
 <body>
 
-<div class="hero">
-    <h1>أفضل العروض العقارية</h1>
-    <p>شاليهات - شقق - فيلات بأفضل الأسعار وخدمة فورية على مدار الساعة</p>
-    <a class="btn" href="https://wa.me/201220541190">تواصل واتساب</a>
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="logo">
+Ahmed <span>Real Estate</span>
 </div>
 
-<div class="section">
+<div class="nav-links">
+<a href="#">الرئيسية</a>
+<a href="#projects">المشاريع</a>
+<a href="#contact">تواصل</a>
+</div>
 
-<h2>عروضنا</h2>
+</nav>
 
-<div class="cards">
-    <div class="card">شاليه فاخر</div>
-    <div class="card">شقة حديثة</div>
-    <div class="card">فيلا مستقلة</div>
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+
+<div class="mini-badge">
+☀️ North Coast Luxury Collection
+</div>
+
+<h1>
+امتلك وحدتك<br>
+في قلب العلمين الجديدة
+</h1>
+
+<p>
+أفخم الشاليهات والفيلات بإطلالة مباشرة على البحر
+مع أنظمة سداد حصرية وأسعار استثمارية.
+</p>
+
+<div class="hero-buttons">
+
+<a href="https://wa.me/201220541190"
+class="main-btn">
+<i class="fab fa-whatsapp"></i>
+تواصل الآن
+</a>
+
+<a href="#projects"
+class="second-btn">
+استكشف المشاريع
+</a>
+
 </div>
 
 </div>
 
-<div class="section">
+</section>
 
-<h2>احجز الآن</h2>
+<!-- STATS -->
 
-<form onsubmit="send(event)">
-    <input id="name" placeholder="الاسم">
-    <input id="phone" placeholder="الرقم">
-    <select id="type">
-        <option>شاليه</option>
-        <option>شقة</option>
-        <option>فيلا</option>
-    </select>
-    <button>إرسال واتساب</button>
+<section class="stats">
+
+<div class="stat-box">
+<h2>120+</h2>
+<p>وحدة مميزة</p>
+</div>
+
+<div class="stat-box">
+<h2>95%</h2>
+<p>رضا العملاء</p>
+</div>
+
+<div class="stat-box">
+<h2>24/7</h2>
+<p>دعم واستشارات</p>
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section class="projects" id="projects">
+
+<h2 class="section-title">
+مشاريع مميزة
+</h2>
+
+<div class="project-grid">
+
+<div class="project-card">
+
+<img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?q=80&w=1200&auto=format&fit=crop">
+
+<div class="project-info">
+<h3>شاليهات ساحلية</h3>
+
+<p>
+إطلالة مباشرة على البحر مع خدمات فندقية كاملة.
+</p>
+</div>
+
+</div>
+
+<div class="project-card">
+
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop">
+
+<div class="project-info">
+<h3>فيلات فاخرة</h3>
+
+<p>
+تصميمات مودرن بمساحات متنوعة وتشطيب فاخر.
+</p>
+</div>
+
+</div>
+
+<div class="project-card">
+
+<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop">
+
+<div class="project-info">
+<h3>استثمار ذكي</h3>
+
+<p>
+أفضل الفرص الاستثمارية في الساحل الشمالي والعلمين.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact-section" id="contact">
+
+<div class="form-box">
+
+<h2>
+احجز استشارتك الآن
+</h2>
+
+<form id="bookingForm">
+
+<div class="input-group">
+<input type="text"
+id="name"
+placeholder="الاسم الكامل"
+required>
+</div>
+
+<div class="input-group">
+<input type="tel"
+id="phone"
+placeholder="رقم الواتساب"
+required>
+</div>
+
+<div class="input-group">
+
+<select id="unit">
+
+<option>استوديو</option>
+<option>غرفة واحدة</option>
+<option>غرفتين</option>
+<option>3 غرف</option>
+
+</select>
+
+</div>
+
+<button type="submit"
+class="submit-btn">
+
+📲 استلام الكتالوج عبر واتساب
+
+</button>
+
 </form>
 
 </div>
 
-<div class="section">
+</section>
 
-<h2>تابعنا</h2>
+<!-- SOCIAL -->
 
-<div class="social">
+<section class="social-section">
 
-<a href="https://www.instagram.com/ahmedrealestate10"><i class="fab fa-instagram"></i></a>
-<a href="https://www.facebook.com/share/18o34ueZSd/"><i class="fab fa-facebook"></i></a>
-<a href="https://www.tiktok.com/@ahmedmooooooo01"><i class="fab fa-tiktok"></i></a>
-<a href="https://snapchat.com/t/mp33ICyk"><i class="fab fa-snapchat"></i></a>
+<h2 class="social-title">
+تابعنا على السوشيال ميديا
+</h2>
 
-</div>
+<div class="social-icons">
 
-</div>
-
-<a class="float" href="https://wa.me/201220541190">
+<a href="https://wa.me/201220541190"
+target="_blank">
 <i class="fab fa-whatsapp"></i>
 </a>
 
+<a href="https://www.instagram.com/ahmedrealestate10?igsh=MWRsZ2VkdHU0OWZ6"
+target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://www.facebook.com/share/18o34ueZSd/?mibextid=wwXIfr"
+target="_blank">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="https://www.tiktok.com/@ahmedmooooooo01?_r=1&_t=ZS-96Cmzq49OWy"
+target="_blank">
+<i class="fab fa-tiktok"></i>
+</a>
+
+<a href="https://snapchat.com/t/mp33ICyk"
+target="_blank">
+<i class="fab fa-snapchat"></i>
+</a>
+
+</div>
+
+</section>
+
+<!-- FLOATING WHATSAPP -->
+
+<a href="https://wa.me/201220541190"
+class="float-btn"
+target="_blank">
+
+<i class="fab fa-whatsapp"></i>
+
+</a>
+
 <script>
-function send(e){
+
+document
+.getElementById('bookingForm')
+
+.addEventListener('submit',function(e){
+
 e.preventDefault();
 
-let name=document.getElementById('name').value;
-let phone=document.getElementById('phone').value;
-let type=document.getElementById('type').value;
+let name =
+document.getElementById('name').value;
 
-let msg=`الاسم: ${name}%0Aالرقم: ${phone}%0Aالنوع: ${type}`;
+let phone =
+document.getElementById('phone').value;
 
-window.open(`https://wa.me/201220541190?text=${msg}`);
-}
+let unit =
+document.getElementById('unit').value;
+
+let message =
+
+`مرحباً، أريد الاستفسار عن وحدة عقارية
+
+الاسم: ${name}
+
+رقم العميل: ${phone}
+
+الوحدة المطلوبة: ${unit}`;
+
+window.open(
+
+`https://wa.me/201220541190?text=${encodeURIComponent(message)}`,
+
+'_blank'
+
+);
+
+});
+
 </script>
 
 </body>
