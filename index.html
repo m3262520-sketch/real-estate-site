@@ -288,15 +288,106 @@ background:#f4f4f4;
 color:black;
 }
 
-.ai-send{
-padding:12px 15px;
-border:none;
-border-radius:12px;
-background:#25d366;
-color:white;
-font-weight:700;
-cursor:pointer;
+<script>
+
+function toggleAI(){
+
+let box=document.getElementById('aiBox');
+
+if(box.style.display==='block'){
+box.style.display='none';
+}else{
+box.style.display='block';
 }
+
+}
+
+function sendAI(){
+
+let input=document.getElementById('aiInput');
+let reply=document.getElementById('aiReply');
+
+let text=input.value.toLowerCase().trim();
+
+if(text===""){
+reply.innerHTML="✍️ اكتب سؤالك أولاً";
+return;
+}
+
+/* ردود ذكية */
+
+if(
+text.includes("سعر") ||
+text.includes("الاسعار") ||
+text.includes("price")
+){
+
+reply.innerHTML="💰 الأسعار تبدأ من 1.5 مليون جنيه مع أنظمة سداد حتى 8 سنوات.";
+
+}
+
+else if(
+text.includes("تقسيط") ||
+text.includes("سداد")
+){
+
+reply.innerHTML="📆 يوجد تقسيط يبدأ من 10% مقدم وفترات سداد طويلة.";
+
+}
+
+else if(
+text.includes("الساحل") ||
+text.includes("العلمين")
+){
+
+reply.innerHTML="🏖️ لدينا مشاريع مميزة في الساحل الشمالي والعلمين الجديدة بإطلالات مباشرة على البحر.";
+
+}
+
+else if(
+text.includes("واتساب") ||
+text.includes("رقم")
+){
+
+reply.innerHTML="📲 يمكنك التواصل مباشرة عبر واتساب: 01220541190";
+
+}
+
+else if(
+text.includes("موقع") ||
+text.includes("فين")
+){
+
+reply.innerHTML="📍 المشاريع متاحة في أفضل مناطق الساحل الشمالي والعلمين الجديدة.";
+
+}
+
+else{
+
+reply.innerHTML="🤖 أفهم سؤالك 👍 سيتم تحويلك لفريق المبيعات لمساعدتك بشكل أفضل.";
+
+}
+
+/* تفريغ الحقل */
+input.value="";
+
+}
+
+/* ENTER SEND */
+document.getElementById("aiInput")
+.addEventListener("keypress",function(e){
+
+if(e.key==="Enter"){
+
+e.preventDefault();
+
+sendAI();
+
+}
+
+});
+
+</script>
 
 /* ANIMATION */
 @keyframes pulse{
