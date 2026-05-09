@@ -42,7 +42,6 @@ inset:0;
 
 background:
 linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.75)),
-
 url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2200&auto=format&fit=crop');
 
 background-size:cover;
@@ -431,7 +430,7 @@ transform:translateY(-10px);
 background:#25d366;
 }
 
-/* FLOAT WHATSAPP */
+/* FLOAT BUTTONS */
 
 .float-whatsapp{
 
@@ -462,6 +461,45 @@ box-shadow:0 10px 35px rgba(37,211,102,.4);
 z-index:999;
 
 animation:pulse 2s infinite;
+}
+
+/* ACCESSIBILITY */
+
+.accessibility-btn{
+
+position:fixed;
+
+right:20px;
+bottom:110px;
+
+width:65px;
+height:65px;
+
+border-radius:50%;
+
+background:#007bff;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+color:white;
+
+font-size:28px;
+
+text-decoration:none;
+
+z-index:999;
+
+box-shadow:0 10px 30px rgba(0,123,255,.4);
+
+transition:.4s;
+
+animation:pulse 2s infinite;
+}
+
+.accessibility-btn:hover{
+transform:translateY(-8px) scale(1.05);
 }
 
 /* ANIMATIONS */
@@ -739,7 +777,7 @@ required>
 
 <div class="input-group">
 
-<select id="countryCode">
+<select id="countryCode" required>
 
 <option value="20">🇪🇬 مصر +20</option>
 <option value="966">🇸🇦 السعودية +966</option>
@@ -751,10 +789,19 @@ required>
 <option value="962">🇯🇴 الأردن +962</option>
 <option value="964">🇮🇶 العراق +964</option>
 <option value="961">🇱🇧 لبنان +961</option>
+<option value="963">🇸🇾 سوريا +963</option>
+<option value="967">🇾🇪 اليمن +967</option>
+<option value="212">🇲🇦 المغرب +212</option>
+<option value="213">🇩🇿 الجزائر +213</option>
+<option value="216">🇹🇳 تونس +216</option>
+<option value="218">🇱🇾 ليبيا +218</option>
+<option value="249">🇸🇩 السودان +249</option>
 <option value="1">🇺🇸 أمريكا +1</option>
 <option value="44">🇬🇧 بريطانيا +44</option>
 <option value="49">🇩🇪 ألمانيا +49</option>
 <option value="33">🇫🇷 فرنسا +33</option>
+<option value="39">🇮🇹 إيطاليا +39</option>
+<option value="90">🇹🇷 تركيا +90</option>
 
 </select>
 
@@ -798,37 +845,27 @@ class="submit-btn">
 
 <a href="https://wa.me/201220541190"
 target="_blank">
-
 <i class="fab fa-whatsapp"></i>
-
 </a>
 
 <a href="https://www.instagram.com/ahmedrealestate10?igsh=MWRsZ2VkdHU0OWZ6"
 target="_blank">
-
 <i class="fab fa-instagram"></i>
-
 </a>
 
 <a href="https://www.facebook.com/share/18o34ueZSd/?mibextid=wwXIfr"
 target="_blank">
-
 <i class="fab fa-facebook-f"></i>
-
 </a>
 
 <a href="https://www.tiktok.com/@ahmedmooooooo01?_r=1&_t=ZS-96Cmzq49OWy"
 target="_blank">
-
 <i class="fab fa-tiktok"></i>
-
 </a>
 
 <a href="https://snapchat.com/t/mp33ICyk"
 target="_blank">
-
 <i class="fab fa-snapchat"></i>
-
 </a>
 
 </div>
@@ -837,13 +874,24 @@ target="_blank">
 
 </section>
 
-<!-- FLOAT BUTTON -->
+<!-- FLOATING WHATSAPP -->
 
 <a href="https://wa.me/201220541190"
 class="float-whatsapp"
 target="_blank">
 
 <i class="fab fa-whatsapp"></i>
+
+</a>
+
+<!-- ACCESSIBILITY BUTTON -->
+
+<a href="https://wa.me/201220541190"
+class="accessibility-btn"
+target="_blank"
+title="دعم ومساعدة">
+
+<i class="fa-solid fa-hands-asl-interpreting"></i>
 
 </a>
 
